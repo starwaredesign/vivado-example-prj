@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        docker { image 'vivado:2018.2' }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'cd scripts && vivado -mode batch -source create_project_tcl.tcl'
+            }
+        }
+    }
+}
