@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                /bin/bash -c "cd scripts && source /opt/Xilinx/Vivado/2018.2/settings64.sh && vivado -mode batch -source create_project_tcl.tcl"
+                su '/bin/bash -c "cd scripts && source /opt/Xilinx/Vivado/2018.2/settings64.sh && vivado -mode batch -source create_project_tcl.tcl" '
             }
         }
     }
