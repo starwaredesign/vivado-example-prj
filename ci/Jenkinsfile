@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                /bin/bash scripts/build_fpga.sh
+                sh '/bin/bash scripts/build_fpga.sh'
             }
         }
     }
