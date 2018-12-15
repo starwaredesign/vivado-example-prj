@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image 'vivado:2018.2'
-            #args '-u vivado'
+            image 'vivado:2018.2'            
         }
     }
     stages {
