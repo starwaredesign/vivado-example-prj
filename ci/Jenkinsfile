@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'vivado:2018.2' }
+        docker { 
+            image 'vivado:2018.2'
+            args '-u vivado'
+        }
     }
     stages {
         stage('Checkout') {
@@ -10,12 +13,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '/bin/bash -c "cd scripts && source /opt/Xilinx/Vivado/2018.2/settings64.sh && vivado -mode batch -source recreate_prj.tcl" '
+                /bin/bash scripts/build_fpga.sh
             }
         }
     }
     post { 
-        always { 
+        always {             
+            archiveArtifacts artifacts: 'vivado/**/impl_1/*.bit'
             cleanWs()
         }
     }
