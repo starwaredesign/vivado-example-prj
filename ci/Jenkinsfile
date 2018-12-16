@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '/bin/bash sudo -i -u vivado scripts/build_fpga.sh'
+                sh '/bin/bash scripts/build_fpga.sh'
             }
         }
     }
