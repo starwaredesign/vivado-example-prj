@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 su - vivado -c '\
 #echo "echo \"executing bashrc\"" >> /home/vivado/.bashrc \
 echo $- \
