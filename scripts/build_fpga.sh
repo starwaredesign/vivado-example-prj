@@ -1,5 +1,5 @@
 #!/bin/bash 
-su -l vivado -c '\
+su - vivado -c '\
 #echo "echo \"executing bashrc\"" >> /home/vivado/.bashrc
 whoami && cat ~/.bashrc && source ~/.bashrc && env && echo $PATH \ 
 vivado -mode batch -source recreate_prj.tcl \
