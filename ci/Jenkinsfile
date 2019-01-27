@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '/bin/bash -l scripts/build_fpga.sh'
+                sh '/bin/bash source /home/vivado/.profile && scripts/build_fpga.sh'
             }
         }
     }
