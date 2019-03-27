@@ -19,7 +19,7 @@ pipeline {
     post { 
         always {             
             archiveArtifacts artifacts: 'vivado/**/impl_1/*.bit,utilisation.csv'
-            plot csvFileName: 'plot-e14c354f-d4b8-4942-9e76-a2423ad3a291.csv', csvSeries: [[displayTableFlag: true, exclusionValues: '"utilization.clb.lut.pct","utilization.clb.ff.pct","utilization.dsp.pct","utilization.ram.tile.pct"', file: 'utilisation.csv', inclusionFlag: 'OFF', url: '']], group: 'utilisation', style: 'line', title: 'Resources utilisation', useDescr: true, yaxis: '[%]'
+            plot csvFileName: 'plot-e14c354f-d4b8-4942-9e76-a2423ad3a291.csv', csvSeries: [[displayTableFlag: true,  file: 'utilisation.csv', inclusionFlag: 'OFF', url: '']], group: 'utilisation', style: 'line', title: 'Resources utilisation', useDescr: true, yaxis: '[%]'
             cleanWs()
         }
     }
