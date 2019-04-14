@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xADA1E7FC25F08E1E",
+      "boundary_crc": "0x7130A56C4134A129",
       "device": "xc7z020clg484-1",
       "name": "example",
       "synth_flow_mode": "Hierarchical",
@@ -40,12 +40,12 @@
       }
     },
     "ports": {
-      "board_type_0": {
+      "board_type": {
         "direction": "I",
         "left": "3",
         "right": "0"
       },
-      "board_rev_0": {
+      "board_rev": {
         "direction": "I",
         "left": "3",
         "right": "0"
@@ -1158,10 +1158,16 @@
           }
         },
         "interface_nets": {
-          "ps7_0_axi_periph_to_s00_couplers": {
+          "m00_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
+              "M00_AXI",
+              "m00_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -1170,10 +1176,10 @@
               "xbar/S00_AXI"
             ]
           },
-          "m00_couplers_to_ps7_0_axi_periph": {
+          "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "S00_AXI",
+              "s00_couplers/S_AXI"
             ]
           },
           "xbar_to_m01_couplers": {
@@ -1186,12 +1192,6 @@
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
             ]
           }
         },
@@ -1237,12 +1237,6 @@
       }
     },
     "interface_nets": {
-      "axi_gpio_0_GPIO2": {
-        "interface_ports": [
-          "sws_8bits",
-          "axi_gpio_0/GPIO2"
-        ]
-      },
       "processing_system7_0_M_AXI_GP0": {
         "interface_ports": [
           "processing_system7_0/M_AXI_GP0",
@@ -1255,10 +1249,10 @@
           "processing_system7_0/DDR"
         ]
       },
-      "axi_gpio_0_GPIO": {
+      "axi_gpio_0_GPIO2": {
         "interface_ports": [
-          "leds_8bits",
-          "axi_gpio_0/GPIO"
+          "sws_8bits",
+          "axi_gpio_0/GPIO2"
         ]
       },
       "processing_system7_0_FIXED_IO": {
@@ -1267,16 +1261,22 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "ps7_0_axi_periph_M00_AXI": {
+      "axi_gpio_0_GPIO": {
         "interface_ports": [
-          "ps7_0_axi_periph/M00_AXI",
-          "axi_gpio_0/S_AXI"
+          "leds_8bits",
+          "axi_gpio_0/GPIO"
         ]
       },
       "ps7_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "ps7_0_axi_periph/M01_AXI",
           "systemversion_0/s_axi"
+        ]
+      },
+      "ps7_0_axi_periph_M00_AXI": {
+        "interface_ports": [
+          "ps7_0_axi_periph/M00_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       }
     },
@@ -1290,8 +1290,8 @@
           "axi_gpio_0/s_axi_aclk",
           "ps7_0_axi_periph/M00_ACLK",
           "ps7_0_axi_periph/ACLK",
-          "systemversion_0/s_axi_aclk",
-          "ps7_0_axi_periph/M01_ACLK"
+          "ps7_0_axi_periph/M01_ACLK",
+          "systemversion_0/s_axi_aclk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -1307,19 +1307,19 @@
           "axi_gpio_0/s_axi_aresetn",
           "ps7_0_axi_periph/M00_ARESETN",
           "ps7_0_axi_periph/ARESETN",
-          "systemversion_0/s_axi_aresetn",
-          "ps7_0_axi_periph/M01_ARESETN"
+          "ps7_0_axi_periph/M01_ARESETN",
+          "systemversion_0/s_axi_aresetn"
         ]
       },
       "board_type_0_1": {
         "ports": [
-          "board_type_0",
+          "board_type",
           "systemversion_0/board_type"
         ]
       },
       "board_rev_0_1": {
         "ports": [
-          "board_rev_0",
+          "board_rev",
           "systemversion_0/board_rev"
         ]
       }

@@ -7,6 +7,5 @@ bd/**/sim
 bd/**/synth
 bd/**/ui
 *.bxml
-*.xdc
 *.jou
 *.log
