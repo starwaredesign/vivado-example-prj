@@ -22,6 +22,10 @@ close_bd_design [current_bd_design]
 # build the bitstream
 launch_runs impl_1 -to_step write_bitstream -jobs ${ncpu}
 wait_on_run impl_1
+if {[get_property PROGRESS [get_runs impl_1]] != "100%"} {
+	error "ERROR: bitstream generation failed"
+	exit -1
+}
 
 # create CSV file with resource utilisation
 namespace import ::tclapp::xilinx::designutils::report_failfast
