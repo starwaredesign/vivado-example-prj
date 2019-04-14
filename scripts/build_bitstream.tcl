@@ -4,10 +4,11 @@ set utilisation_file utilisation.csv
 open_project ${project_file}
 
 # configure the system version block if present
-open_bd_design [current_bd_design]
+set project_name [get_property NAME [current_project]]
+open_bd_design "bd/${project_name}/${project_name}.bd"
 set systemversion_block [get_bd_cells *systemversion*]
 if {$systemversion_block ne ""} then {
-	if {[info exists $::env(BUILD_NUMBER)]} {
+	if {[info exists ::env(BUILD_NUMBER)]} {
 		set build_number $::env(BUILD_NUMBER) 
 	} else {
 		set build_number 65535
@@ -16,7 +17,7 @@ if {$systemversion_block ne ""} then {
 	validate_bd_design
 	save_bd_design
 }
-close_bd_design
+close_bd_design [current_bd_design]
 
 # build the bitstream
 launch_runs impl_1 -to_step write_bitstream -jobs ${ncpu}
