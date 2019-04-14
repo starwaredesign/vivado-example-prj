@@ -108,10 +108,10 @@ wire [ C_BOARD_REV_WIDTH-1:0]     board_rev_sync ;
 // be used
 
 xpm_cdc_array_single #(
-  .DEST_SYNC_FF  (C_BOARD_TYPE_WIDTH),
+  .DEST_SYNC_FF  (2                 ),
   .SIM_ASSERT_CHK(0                 ),
   .SRC_INPUT_REG (0                 ),
-  .WIDTH         (2                 )
+  .WIDTH         (C_BOARD_TYPE_WIDTH)
 ) cdc_board_type (
   .src_clk (1'b0           ),
   .src_in  (board_type     ),
@@ -120,10 +120,10 @@ xpm_cdc_array_single #(
 );
 
 xpm_cdc_array_single #(
-  .DEST_SYNC_FF  (C_BOARD_REV_WIDTH),
+  .DEST_SYNC_FF  (2                ),
   .SIM_ASSERT_CHK(0                ),
   .SRC_INPUT_REG (0                ),
-  .WIDTH         (2                )
+  .WIDTH         (C_BOARD_REV_WIDTH)
 ) cdc_board_rev (
   .src_clk (1'b0          ),
   .src_in  (board_rev     ),
