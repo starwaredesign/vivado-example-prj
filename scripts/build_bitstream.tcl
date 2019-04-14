@@ -13,6 +13,7 @@ if {$systemversion_block ne ""} then {
 	} else {
 		set build_number 65535
 	}
+	puts "Build number ${build_number}"
 	set_property CONFIG.C_VER_BUILD $build_number $systemversion_block
 	validate_bd_design
 	save_bd_design
